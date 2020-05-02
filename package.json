@@ -1,0 +1,29 @@
+{
+  "name": "rest-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andersoft/RestClient.git"
+  },
+  "author": "jordan Anderon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andersoft/RestClient/issues"
+  },
+  "homepage": "https://github.com/Andersoft/RestClient#readme",
+  "devDependencies": {
+    "tslint": "^6.1.2",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "rxjs": "^6.5.5",
+    "tslint-config-airbnb": "^5.11.2"
+  },
+  "files": ["dist/**/*"]
+}
