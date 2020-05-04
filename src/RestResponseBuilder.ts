@@ -4,7 +4,7 @@ import { map, concatAll } from 'rxjs/operators';
 import { ApiError } from "./ApiError";
 import { Success } from "./Success";
 export class RestResponseBuilder<T> {
-  private body: string = '';
+  private body: string | undefined;
   private method: string = 'GET';
   constructor(private address: string) { }
   withBody(body: {}): RestResponseBuilder<T> {
@@ -22,7 +22,7 @@ export class RestResponseBuilder<T> {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: this.body
+        body: this.method == 'GET' ? undefined : this.body
       });
       return <Observable<Response>>from(promise);
     };
