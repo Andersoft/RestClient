@@ -17,13 +17,17 @@ export class RestResponseBuilder<T> {
   }
   build(): Observable<ApiError | Success<T>> {
     const httpCall = () => {
-      const promise = fetch(this.address, {
+      let options = {
         method: this.method,
         headers: {
           'Content-Type': 'application/json'
-        },
-        body: this.method == 'GET' ? undefined : this.body
-      });
+        }
+      };
+
+      if(this.method.toUpperCase() == 'GET'){
+        options = Object.assign(options, {body: this.body})
+      }
+      const promise = fetch(this.address, );
       return <Observable<Response>>from(promise);
     };
     const getResult = map((response: Response) => from(this.handleResponse<T>(response)));
