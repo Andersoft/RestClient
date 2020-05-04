@@ -24,7 +24,7 @@ export class RestResponseBuilder<T> {
         }
       };
 
-      if(this.method.toUpperCase() == 'GET'){
+      if(this.method.toUpperCase() != 'GET'){
         options = Object.assign(options, {body: this.body})
       }
       const promise = fetch(this.address, );
