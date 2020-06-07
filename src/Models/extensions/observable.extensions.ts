@@ -1,6 +1,6 @@
-import { ApiError } from "./ApiError";
-import { Success } from "./Success";
-import { ResultDiscriminator } from "./ResultDiscriminator";
+import { ApiError } from "../ApiError";
+import { Success } from "../Success";
+import { ResultDiscriminator } from "../ResultDiscriminator";
 import { Observable } from 'rxjs'
 
 declare module 'rxjs/internal/Observable' {

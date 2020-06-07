@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var ResultDiscriminator_1 = require("./ResultDiscriminator");
+var ResultDiscriminator_1 = require("../Models/ResultDiscriminator");
 var rxjs_1 = require("rxjs");
 function either(success, failure) {
     this.subscribe({

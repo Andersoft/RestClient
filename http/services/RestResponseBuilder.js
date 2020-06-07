@@ -36,13 +36,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var ResultDiscriminator_1 = require("./ResultDiscriminator");
+var ResultDiscriminator_1 = require("../Models/ResultDiscriminator");
 var rxjs_1 = require("rxjs");
 var operators_1 = require("rxjs/operators");
 var RestResponseBuilder = /** @class */ (function () {
     function RestResponseBuilder(address) {
         this.address = address;
-        this.body = '';
         this.method = 'GET';
     }
     RestResponseBuilder.prototype.withBody = function (body) {
@@ -56,13 +55,16 @@ var RestResponseBuilder = /** @class */ (function () {
     RestResponseBuilder.prototype.build = function () {
         var _this = this;
         var httpCall = function () {
-            var promise = fetch(_this.address, {
+            var options = {
                 method: _this.method,
                 headers: {
                     'Content-Type': 'application/json'
-                },
-                body: _this.body
-            });
+                }
+            };
+            if (_this.method.toUpperCase() != 'GET') {
+                options = Object.assign(options, { body: _this.body });
+            }
+            var promise = fetch(_this.address);
             return rxjs_1.from(promise);
         };
         var getResult = operators_1.map(function (response) { return rxjs_1.from(_this.handleResponse(response)); });

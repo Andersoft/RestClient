@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
-import { ApiError } from "./ApiError";
-import { Success } from "./Success";
+import { ApiError } from "../Models/ApiError";
+import { Success } from "../Models/Success";
 export declare class RestClient {
     constructor();
     PostAsync<T>(address: string, model: {}): Observable<ApiError | Success<T>>;

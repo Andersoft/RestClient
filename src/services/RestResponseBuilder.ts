@@ -1,8 +1,8 @@
-import { ResultDiscriminator } from "./ResultDiscriminator";
+import { ResultDiscriminator } from "../Models/ResultDiscriminator";
 import { from, Observable } from 'rxjs';
 import { map, concatAll } from 'rxjs/operators';
-import { ApiError } from "./ApiError";
-import { Success } from "./Success";
+import { ApiError } from "../Models/ApiError";
+import { Success } from "../Models/Success";
 export class RestResponseBuilder<T> {
   private body: string | undefined;
   private method: string = 'GET';

@@ -1,1 +1,1 @@
-export { RestClient as RestClient } from './RestClient'
+export { RestClient as RestClient } from './services/RestClient'

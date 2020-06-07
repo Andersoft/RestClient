@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var WellKnownMethods_1 = require("./WellKnownMethods");
+var WellKnownMethods_1 = require("../Models/WellKnownMethods");
 var RestResponseBuilder_1 = require("./RestResponseBuilder");
 var RestClient = /** @class */ (function () {
     function RestClient() {
