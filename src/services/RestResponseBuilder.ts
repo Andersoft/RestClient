@@ -3,6 +3,7 @@ import { from, Observable } from 'rxjs';
 import { map, concatAll } from 'rxjs/operators';
 import { ApiError } from "../Models/ApiError";
 import { Success } from "../Models/Success";
+
 export class RestResponseBuilder<T> {
   private body: string | undefined;
   private method: string = 'GET';
@@ -27,7 +28,7 @@ export class RestResponseBuilder<T> {
       if(this.method.toUpperCase() != 'GET'){
         options = Object.assign(options, {body: this.body})
       }
-      const promise = fetch(this.address, );
+      const promise = fetch(this.address, options);
       return <Observable<Response>>from(promise);
     };
     const getResult = map((response: Response) => from(this.handleResponse<T>(response)));
