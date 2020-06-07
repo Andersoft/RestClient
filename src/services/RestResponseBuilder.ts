@@ -6,17 +6,22 @@ import { Success } from "../Models/Success";
 
 export class RestResponseBuilder<T> {
   private body: string | undefined;
-  private method: string = 'GET';
+  private method: string = '';
+  
   constructor(private address: string) { }
+
   withBody(body: {}): RestResponseBuilder<T> {
     this.body = JSON.stringify(body);
     return this;
   }
+
   withMethod(method: string): RestResponseBuilder<T> {
     this.method = method;
     return this;
   }
+
   build(): Observable<ApiError | Success<T>> {
+
     const httpCall = () => {
       let options = {
         method: this.method,
