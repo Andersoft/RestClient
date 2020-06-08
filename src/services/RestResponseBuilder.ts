@@ -1,13 +1,13 @@
-import { ResultDiscriminator } from "../Models/ResultDiscriminator";
+import { ResultDiscriminator } from '../Models/ResultDiscriminator';
 import { from, Observable } from 'rxjs';
 import { map, concatAll } from 'rxjs/operators';
-import { ApiError } from "../Models/ApiError";
-import { Success } from "../Models/Success";
+import { ApiError } from '../Models/ApiError';
+import { Success } from '../Models/Success';
 
 export class RestResponseBuilder<T> {
   private body: string | undefined;
   private method: string = '';
-  
+
   constructor(private address: string) { }
 
   withBody(body: {}): RestResponseBuilder<T> {
@@ -26,12 +26,12 @@ export class RestResponseBuilder<T> {
       let options = {
         method: this.method,
         headers: {
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
       };
 
-      if(this.method.toUpperCase() != 'GET'){
-        options = Object.assign(options, {body: this.body})
+      if (this.method.toUpperCase() !== 'GET') {
+        options = Object.assign(options, { body: this.body });
       }
       const promise = fetch(this.address, options);
       return <Observable<Response>>from(promise);
@@ -42,9 +42,11 @@ export class RestResponseBuilder<T> {
   async handleResponse<T>(response: Response): Promise<ApiError | Success<T>> {
     try {
       return await response.json();
-    }
-    catch (error) {
-      return { type: ResultDiscriminator.Error, errorMessage: "Unknown Response" };
+    } catch (error) {
+      return {
+        type: ResultDiscriminator.Error,
+        errorMessage: 'Unknown Response',
+      };
     }
   }
 }

@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
-import { ApiError } from "../Models/ApiError";
-import { Success } from "../Models/Success";
+import { ApiError } from '../Models/ApiError';
+import { Success } from '../Models/Success';
 export declare class RestResponseBuilder<T> {
     private address;
     private body;

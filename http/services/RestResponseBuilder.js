@@ -42,7 +42,7 @@ var operators_1 = require("rxjs/operators");
 var RestResponseBuilder = /** @class */ (function () {
     function RestResponseBuilder(address) {
         this.address = address;
-        this.method = 'GET';
+        this.method = '';
     }
     RestResponseBuilder.prototype.withBody = function (body) {
         this.body = JSON.stringify(body);
@@ -58,13 +58,13 @@ var RestResponseBuilder = /** @class */ (function () {
             var options = {
                 method: _this.method,
                 headers: {
-                    'Content-Type': 'application/json'
-                }
+                    'Content-Type': 'application/json',
+                },
             };
-            if (_this.method.toUpperCase() != 'GET') {
+            if (_this.method.toUpperCase() !== 'GET') {
                 options = Object.assign(options, { body: _this.body });
             }
-            var promise = fetch(_this.address);
+            var promise = fetch(_this.address, options);
             return rxjs_1.from(promise);
         };
         var getResult = operators_1.map(function (response) { return rxjs_1.from(_this.handleResponse(response)); });
@@ -81,7 +81,10 @@ var RestResponseBuilder = /** @class */ (function () {
                     case 1: return [2 /*return*/, _a.sent()];
                     case 2:
                         error_1 = _a.sent();
-                        return [2 /*return*/, { type: ResultDiscriminator_1.ResultDiscriminator.Error, errorMessage: "Unknown Response" }];
+                        return [2 /*return*/, {
+                                type: ResultDiscriminator_1.ResultDiscriminator.Error,
+                                errorMessage: 'Unknown Response',
+                            }];
                     case 3: return [2 /*return*/];
                 }
             });
