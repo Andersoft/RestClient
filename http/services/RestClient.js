@@ -16,6 +16,11 @@ var RestClient = /** @class */ (function () {
             .withMethod(WellKnownMethods_1.WellKnownMethods.GET)
             .build();
     };
+    RestClient.prototype.deleteAsync = function (address) {
+        return new RestResponseBuilder_1.RestResponseBuilder(address)
+            .withMethod(WellKnownMethods_1.WellKnownMethods.DELETE)
+            .build();
+    };
     return RestClient;
 }());
 exports.RestClient = RestClient;

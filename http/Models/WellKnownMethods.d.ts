@@ -1,4 +1,5 @@
 export declare enum WellKnownMethods {
     GET = "GET",
-    POST = "POST"
+    POST = "POST",
+    DELETE = "DELETE"
 }

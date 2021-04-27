@@ -1,6 +1,4 @@
-import { Result } from '../Models/Result';
-import { pipe, Observable } from 'rxjs';
-import { filter, reduce  } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { ApiError } from '../Models/ApiError';
 import { Success } from '../Models/Success';
 import { WellKnownMethods } from '../Models/WellKnownMethods';
@@ -19,6 +17,12 @@ export class RestClient {
   public getAsync<T>(address: string): Observable<ApiError | Success<T>> {
     return new RestResponseBuilder<T>(address)
       .withMethod(WellKnownMethods.GET)
+      .build();
+  }
+
+  public deleteAsync<T>(address: string): Observable<ApiError | Success<T>> {
+    return new RestResponseBuilder<T>(address)
+      .withMethod(WellKnownMethods.DELETE)
       .build();
   }
 }

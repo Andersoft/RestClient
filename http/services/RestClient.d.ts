@@ -5,4 +5,5 @@ export declare class RestClient {
     constructor();
     postAsync<T>(address: string, model: {}): Observable<ApiError | Success<T>>;
     getAsync<T>(address: string): Observable<ApiError | Success<T>>;
+    deleteAsync<T>(address: string): Observable<ApiError | Success<T>>;
 }

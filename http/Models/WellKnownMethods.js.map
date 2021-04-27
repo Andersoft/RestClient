@@ -1,1 +1,1 @@
-{"version":3,"file":"WellKnownMethods.js","sourceRoot":"","sources":["../../src/Models/WellKnownMethods.ts"],"names":[],"mappings":";;AAAA,IAAY,gBAGX;AAHD,WAAY,gBAAgB;IAC1B,+BAAW,CAAA;IACX,iCAAa,CAAA;AACf,CAAC,EAHW,gBAAgB,GAAhB,wBAAgB,KAAhB,wBAAgB,QAG3B"}
+{"version":3,"file":"WellKnownMethods.js","sourceRoot":"","sources":["../../src/Models/WellKnownMethods.ts"],"names":[],"mappings":";;AAAA,IAAY,gBAIX;AAJD,WAAY,gBAAgB;IAC1B,+BAAW,CAAA;IACX,iCAAa,CAAA;IACb,qCAAiB,CAAA;AACnB,CAAC,EAJW,gBAAgB,GAAhB,wBAAgB,KAAhB,wBAAgB,QAI3B"}
